@@ -8,7 +8,7 @@ FROM golang:1.21 as base
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the go.mod and go.sum files to the working directory
+# Copy the go.mod and go.sum files to the working directory.
 COPY go.mod ./
 
 # Download all the dependencies
@@ -22,7 +22,7 @@ RUN go build -o main .
 
 #######################################################
 # Reduce the image size using multi-stage builds
-# We will use a distroless image to run the application
+# We will use a distroless image to run the application.
 FROM gcr.io/distroless/base
 
 # Copy the binary from the previous stage
